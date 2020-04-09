@@ -20,7 +20,9 @@ void main() => runApp(MaterialApp(
 
 class Home extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomeState createState() => homeState_widget();
+
+  _HomeState homeState_widget() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
@@ -36,7 +38,7 @@ class _HomeState extends State<Home> {
       });
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var scaffold2 = Scaffold(
       body: Center(
         child: Transform.rotate(angle: _angle, child: FlutterLogo(size: _size)),
       ),
@@ -101,6 +103,8 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+    var scaffold = scaffold2;
+    return scaffold;
   }
 }
 
