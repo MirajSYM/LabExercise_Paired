@@ -38,7 +38,13 @@ class _HomeState extends State<Home> {
       });
   @override
   Widget build(BuildContext context) {
-    var scaffold2 = Scaffold(
+    var scaffold2 = buildScaffold();
+    var scaffold = scaffold2;
+    return scaffold;
+  }
+
+  Scaffold buildScaffold() {
+    return Scaffold(
       body: Center(
         child: Transform.rotate(angle: _angle, child: FlutterLogo(size: _size)),
       ),
@@ -103,8 +109,6 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
-    var scaffold = scaffold2;
-    return scaffold;
   }
 }
 
