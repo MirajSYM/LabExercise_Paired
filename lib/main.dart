@@ -25,15 +25,20 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   double _size = 150.0;
+  double _angle = 0.0;
   get size => _size;
+  get angle => _angle;
   set size(value) => setState(() {
         _size = value;
+      });
+  set angle(value) => setState(() {
+        _angle = value;
       });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: FlutterLogo(size: _size),
+        child: Transform.rotate(angle: _angle, child: FlutterLogo(size: _size)),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(
@@ -73,19 +78,23 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Logo size : 0.0'),
+                Text('Logo size : ${_size.toStringAsFixed(0)}'),
                 SizedBox(width: 8),
-                Text('Rotation : 0.0'),
+                Text('Rotation : ${_angle.toStringAsFixed(0)} degree'),
               ],
             ),
             slider(
-              150.0,
-              (value) {},
+              _size,
+              (value) {
+                size = value;
+              },
               300.0,
             ),
             slider(
-              0.0,
-              (value) {},
+              _angle,
+              (value) {
+                angle = value;
+              },
               360.0,
             ),
           ],
